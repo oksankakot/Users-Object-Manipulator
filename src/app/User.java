@@ -32,4 +32,12 @@ public class User {
         User user = (User) o;
         return id == user.id && Objects.equals(name, user.name) && Objects.equals(email, user.email);
     }
+
+    @Override
+    public String toString() {
+        return "User with" +
+                " id #" + id +
+                " has name " + name +
+                " and email '" + email + "'.";
+    }
 }

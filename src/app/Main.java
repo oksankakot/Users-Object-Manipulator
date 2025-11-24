@@ -15,14 +15,16 @@ public class Main {
         userById.ifPresent(user -> System.out.println("Found: " + user.getName()));
         System.out.println("----------");
 
-        System.out.println("Searching user by email.");
+        System.out.println("Searching user by email 'it@gmail.com'.");
         Optional<User> userByEmail = manipulator.findUserByEmail(users, "it@gmail.com");
         userByEmail.ifPresent(user -> System.out.println("Found: " + user.getName()));
         System.out.println("----------");
 
         System.out.println("Retrieving list of all users.");
         Optional<List<User>> allUsers = manipulator.findAllUsers(users);
-        allUsers.ifPresent(list -> System.out.println("Number of users in the list: " + list.size() + " users."));
-
+        allUsers.ifPresent(list -> {
+            System.out.println("In user's list there are: " + list.size() + " users.");
+            list.forEach(System.out::println);
+        });
     }
 }
